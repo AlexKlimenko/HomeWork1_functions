@@ -132,11 +132,54 @@ console.log(`
 
 console.log("8. Создать функцию которая принимает массив пользователей, поле на которое хочу проверить и значение на которое хочу проверять. Проверять что все аргументы переданы. Возвращать новый массив с пользователями соответсвующие указанным параметрам.");
 
-const users = [{
+const users = [
+  {
     name: "Denis",
-    age: 29
+    age: 29,
+    gender: "male"
   },
   {
-
+    name: "Alex",
+    age: 32,
+    gender: "male"
+  },
+  {
+    name: "Anna",
+    age: 28,
+    gender: "female"
+  },
+  {
+    name: "Ivan",
+    age: 12,
+    gender: "male"
+  },
+  {
+    name: "Oksana",
+    age: 27,
+    gender: "female"
+  },
+  {
+    name: "Inna",
+    age: 50,
+    gender: "female"
   }
-]
+];
+
+function filter(arr, key, value) {
+  let filterRes = [];
+  if (!Array.isArray(arr)) {
+    console.log(`Не массив`);
+  } else if (!key || !value) {
+    console.log(`Передайте ключ и значение`);
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i][key] === value) {
+        filterRes.push(arr[i]);
+      }
+    }
+  }
+return filterRes; 
+}
+
+let filteredUsers = filter(users, "gender", "male");
+console.log(filteredUsers);
